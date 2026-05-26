@@ -1,0 +1,200 @@
+---
+title: "Tarea 7"
+author: "[correo alumno]"
+output:
+  html_document
+---
+
+---
+
+# Instrucciones
+
+- Esta tarea tiene ejercicios para realizar comparaciones de medias de tres o más grupos.
+
+- Usaremos datos recolectados por el Instituto Nacional de la Juventud a partir de su novena encuesta (2018), sobre la actitud de los jóvenes chilenos hacia distintos temas valóricos.
+
+- El archivo con los datos se llama:
+
+```
+
+base_injuv_2018.csv
+
+```
+
+- El contenido de estos datos incluye:
+
+```
+
+#-------------------------------------------------------------------
+# contenido de los datos
+#-------------------------------------------------------------------
+
+ $ EDAD      : int  23 22 27 15 16 15 29... # Edades de 18 a 29 años
+ $ SEXO      : int  2 1 1 1 2 1 1 2 1 2 ... # 1= mujer; 2= hombre
+ $ NSE       : int  3 2 2 3 2 2 3 3 2 1 ... # 1= alto; 2= medio; 3= bajo
+ $ matrimonio: int  4 2 3 3 3 4 3 1 1 2 ... # Acuerdo con "El matrimonio como una institución para toda la vida"
+
+```
+
+
+---
+
+
+# Ejercicio 1. Cargar datos de una población.
+
+Abra estos datos, y guardelos en un objeto llamado `datos_injuv`.
+
+
+```{r}
+
+# Escriba su código de respuesta aquí
+
+```
+
+
+
+# Ejercicio 2. Creación de grupos de edad.
+
+Recodifique la variable `EDAD` en una nueva variable `edad_cat` que contenga tres grupos:
+
+  - Grupo A: Jovenes hasta 19 años 
+  - Grupo B: Jovenes mayores de 19 años y menores de 25
+  - Grupo C: Jovenes de 25 y más años
+
+
+```{r}
+
+# Escriba su código de respuesta aquí
+
+
+```
+
+
+# Ejercicio 3. Obtener una submuestra
+
+Cree una muestra de 500 casos y guárdela en un objeto llamado "datos_modelo". Utilice su RUT como set.seed() para que la muestra sea única. En el siguiente código se incluye un ejemplo para realizar la selección de submuetsra, mediante `dplyr::slice_sample()`.
+
+```{r}
+
+
+library(dplyr)
+set.seed(1234567890)
+# datos_modelo <- datos_a_emplear %>%
+#                 dplyr::slice_sample(n = 1000)
+
+
+
+```
+
+# Ejercicio 4. Medias descriptivas
+
+Calcule las medias de las respuestas al item `datos_tarea$matrimonio` para los distintos grupos de edad en `edad_cat`
+
+```{r}
+
+
+```
+
+- **Respuesta**
+  - Media grupo A: `#....indicar su respuesta en esta línea, y borrar este comentario.`
+  - Media grupo B: `#....indicar su respuesta en esta línea, y borrar este comentario.`
+  - Media grupo C: `#....indicar su respuesta en esta línea, y borrar este comentario.`
+
+
+# Ejercicio 5. Crear variables indicadoras
+
+A partir de la variable `edad_cat` cree variables indicadoras de tal manera que el grupo A sea el grupo de referencia.
+
+```{r}
+
+# Escriba su código de respuesta aquí
+
+
+```
+
+
+# Ejercicio 6. Realize una regresión múltiple prediciendo por grupos de edad.
+
+
+Realize un modelo de regresión múltiple para determinar si los grupos de edad (`edad_cat`) predicen de forma estadisticamente significativa la variable de respuesta `matrimonio`. Muestre los resultados del modelo usando el comando `summary()`
+
+
+```{r}
+
+
+
+```
+
+
+# Ejercicio 7. Reporte los resultados del modelo de regresión múltiple
+
+Calcule o identifique los siguientes elementos del modelo anterior:
+
+  - Media del grupo A
+  - Media del grupo B
+  - Media del grupo C
+  - Desviación estándar de los residuos
+  - Numero de casos
+  - Estadígrafo F
+
+
+```{r}
+
+
+```
+
+- **Respuesta**
+
+  - Media del grupo A: `#....indicar su respuesta en esta línea y borrar este comentario.`
+  - Media del grupo B: `#....indicar su respuesta en esta línea y borrar este comentario.`
+  - Media del grupo C: `#....indicar su respuesta en esta línea y borrar este comentario.`
+  - Desviación estándar de los residuos: `#....indicar su respuesta en esta línea, y borrar este comentario.`
+  - Numero de casos: `#....indicar su respuesta en esta línea y borrar este comentario.`
+  - Estadígrafo F: `#....indicar su respuesta en esta línea y borrar este comentario.`
+
+
+
+# Ejercicio 8. Hipótesis estadisticas
+
+Indique en palabras cual es la hipótesis nula respecto a la relación entre los grupos de edad y las respuestas a la pregunta `matrimonio` en el análisis anterior y cuál es la hipotesis alternativa.
+
+Explique si en este caso corresponde rechazar o no rechazar la hipótesis nula y en que elementos se basa para tomar es decisión.
+
+
+- **Respuesta**
+  - Hipotesis nula: `#....indicar su respuesta en esta línea y borrar este comentario.`
+  - Hipotesis alternativa: `#....indicar su respuesta en esta línea y borrar este comentario.`
+  - Decisión (con justificación): `#....indicar su respuesta y borrar este comentario.`
+
+
+# Ejercicio 9. Diferencias de medias
+
+Considerando la respuesta a la pregunta anterior, cuando corresponda indique si hay evidencia estadisticamente significativa de una diferencia entre (i) el grupo A y el grupo B y (ii) entre el grupo A y grupo C. Indique en que partes del resultado del análisis se basa para responder.
+
+
+- **Respuesta**
+  `#....indicar su respuesta y borrar este comentario.`
+
+
+
+# Ejercicio 10. Más diferencias de medias
+
+Si quisiera obtener directamente en el resultado de la regresión las comparaciones (i) entre el grupo A y C y (ii) entre el grupo B y C, ¿Que tendría que haber cambiado en los predictores del modelo de regresión?
+
+- **Respuesta**
+  `#....indicar su respuesta y borrar este comentario.`
+
+
+
+# Ejercicio 11. ANOVA
+
+Realize un ANOVA evaluando las diferencias de medias entre los grupos A, B y C respecto de la variable `matrimonio` y genere el análisis de comparaciones múltiples de Tukey. Reporte si el análisis identifica diferencias estadisticamente significativas entre los grupos B y C.
+
+```{r}
+
+
+```
+
+- **Respuesta**
+  - `#....indicar su respuesta en esta línea, y borrar este comentario.`
+
