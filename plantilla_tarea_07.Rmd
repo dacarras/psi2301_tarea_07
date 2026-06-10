@@ -88,7 +88,7 @@ set.seed(1234567890)
 
 # Ejercicio 4. Medias descriptivas
 
-Calcule las medias de las respuestas al item `datos_tarea$matrimonio` para los distintos grupos de edad en `edad_cat`
+Calcule las medias de las respuestas al item `datos_modelo$matrimonio` para los distintos grupos de edad en `edad_cat`
 
 ```{r}
 
